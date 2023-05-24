@@ -49,14 +49,14 @@ links.forEach(link => {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
-        
+
         if (targetId === "") {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else if (targetElement) {
             const targetOffset = targetElement.offsetTop - 90;
             window.scrollTo({ top: targetOffset, behavior: 'smooth' });
         }
-        
+
         menuList.classList.add("no-visible");
         menuButton.innerHTML = '<i class="bi bi-list"></i>';
     });
@@ -64,7 +64,6 @@ links.forEach(link => {
 
 
 // articles
-
 const container = document.querySelector('section');
 
 // Datos de los artículos
@@ -77,12 +76,13 @@ const articlesData = [
     {
         id: 'cuando_se_realiza',
         title: '¿Cuándo se realiza?',
-        content: 'Realizamos 2 encuentros por mes de manera presencial.\nTe invitamos a unirte a nosotres en los segundos y cuartos sábados de cada mes, de 17:00 a 19:00 horas.'
+        content: 'Realizamos 2 encuentros por mes de manera presencial.\n Te invitamos a unirte a nosotres en los segundos y cuartos sábados de cada mes, de 17:00 a 19:00 horas.'
     },
     {
         id: 'donde_se_hace',
         title: '¿Dónde se hace?',
-        content: 'En el centro cultural "La Terraza"\nAv. Aviación 690 (1° Piso)\nLongchamps (Frente a la estación)'
+        content: 'En el centro cultural "La Terraza"\n Av. Aviación 690 (1° Piso)\n Longchamps (Frente a la estación)',
+        url_map: 'https://goo.gl/maps/otkFb2aknxafechC6'
     }
 ];
 
@@ -95,12 +95,25 @@ articlesData.forEach(articleData => {
     title.textContent = articleData.title;
 
     const content = document.createElement('p');
-    content.textContent = articleData.content;
+    const lines = articleData.content.split('\n');
+
+    lines.forEach(line => {
+        content.appendChild(document.createTextNode(line));
+        content.appendChild(document.createElement('br'));
+    });
 
     article.appendChild(title);
     article.appendChild(content);
+
+    if (articleData.url_map) {
+        const mapLink = document.createElement('a');
+        mapLink.innerHTML = `<a href="${articleData.url_map}" target="_blank">(Abrir mapa)</a>`;
+        article.appendChild(mapLink);
+    }
     container.appendChild(article);
 });
+
+
 
 // formulario
 const $formulario = document.getElementById('ContactWhatsApp');

@@ -57,11 +57,7 @@ body {
 .user span {
     font-size: 1rem;
     font-weight: 400;
-}
-
-.user span i {
     color: rgb(197, 40, 40);
-    margin-left: 0.5rem;
 }
 
 .user .banner {
@@ -202,12 +198,11 @@ footer {
 
 section {
     display: flex;
-    justify-content: space-around;
-    align-items: stretch;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
-    max-width: 1200px;
-    min-height: 100vh;
+    animation: var(--anim_fade-in);
 }
 
 .form {
@@ -254,15 +249,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 article {
+    animation: var(--anim_fade-in);
     min-height: 30vh;
+    min-width: 280px;
     max-width: 500px;
     margin: 1rem 0;
 
 }
 
-article h2,
-form h2 {
-    text-align: center;
+h2 {
     color: var(--color-dark);
     margin: 1rem 0;
 }
@@ -271,10 +266,11 @@ form h2 {
 a {
     text-decoration: none;
     color: var(--color-secondary);
+    transition: all 0.3s;
 }
 
-i {
-    font-size: 1.5rem;
+a:hover {
+    text-shadow: 0 0 1rem rgb(255, 255, 255);
 }
 
 #fecha {
@@ -284,7 +280,7 @@ i {
     z-index: 10;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
 
     .user,
     footer,
@@ -347,6 +343,9 @@ i {
     .user h1 {
         display: block;
         text-align: center;
+    }
+
+    .user h1 {
         line-height: 2.5rem;
     }
 
@@ -369,8 +368,9 @@ i {
     }
 
     article {
+        text-align: center;
         margin: auto;
-        min-height: 40vh;
+        min-height: 30vh;
     }
 
 }
@@ -378,9 +378,6 @@ i {
 .fade-in {
     animation: fade-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
-
-
-
 
 @keyframes fade-in {
     0% {
