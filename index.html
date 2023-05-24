@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacio de Reflexión TTNB+</title>
+    <meta name="description" content="Este espacio está dirigido a la comunidad TTNB y Disidencias de todas las edades. Ofrece un lugar seguro para compartir experiencias, reflexionar sobre nuestras vivencias y, lo más importante, encontrar contención y herramientas para enfrentar los desafíos que se nos presentan.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/img/icon.png" type="image/png">
+</head>
+
+<body>
+    <nav>
+        <button id="menu" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+        <ul class="no-visible menu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#quienes_somos">¿Quiénes Somos?</a></li>
+            <li><a href="#cuando_se_realiza">¿Cuándo se realiza?</a></li>
+            <li><a href="#donde_se_hace">¿Dónde se hace?</a></li>
+            <li><a href="#ContactWhatsApp">Contacto</a></li>
+        </ul>
+        <span id="fecha"></span>
+    </nav>
+    <header class="user">
+        <img class="banner" src="./assets/img/banner.jpg" alt="Banner de ladytoxic" title="banner de perfil">
+        <img class="avatar" src="./assets/img/552.jpg" alt="foro de perfil" title="Foto de perfil">
+        <div class="user_info">
+            <h1>Espacio de Reflexión TTNB+</h1>
+            <span><i class="bi bi-geo-alt-fill"></i>Centro Cultural La Terraza (Longchamps, Buenos Aires)</span>
+            <ul class="fade-in">
+                <li>
+                    <p>Este espacio está dirigido a la comunidad TTNB y Disidencias de todas las edades. Ofrece un lugar
+                        seguro para compartir experiencias, reflexionar sobre nuestras vivencias y, lo más importante,
+                        encontrar contención y herramientas para enfrentar los desafíos que se nos presentan.</p>
+                </li>
+                <li class="redes">
+                    <div class="redes_box">
+                        <a href="https://www.facebook.com/profile.php?id=100083031925936&sk=about" target="_blank"
+                            aria-label="Link de Instagram"><img src="./assets/img/facebook.png"></a>
+                        <a href="https://www.instagram.com/espacio_dereflexion" target="_blank"
+                            aria-label="Link de Facebook"><img src="./assets/img/instagram.png"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section></section>
+        <section>
+
+        <form id="ContactWhatsApp">
+            <h2>¡Contactate, juntes somos poderoses!</h2>
+            <fieldset class="form">
+                <input name="nombre" type="text" placeholder="Nombre" required aria-label="Campo de Texto nombre">
+                <select name="Pronombres" aria-label="pronombres">
+                    <option disabled selected>Pronombres</option>
+                    <option value="ella">(ella)</option>
+                    <option value="elle">(elle)</option>
+                    <option value="él">(él)</option>
+                    <option value="ella/él/elle">(ella / él / elle)</option>
+                </select>
+                <input name="email" type="email" placeholder="Email" required aria-label="Campo de email">
+                <input name="telefono" type="number" placeholder="Número de teléfono" required
+                    aria-label="Campo número de telefono">
+                <textarea name="mensaje" id="msg" placeholder="Mensaje" required
+                    aria-label="Campo de Texto mensaje"></textarea>
+                <input type="submit" value="Enviar" aria-label="botón enviar">
+            </fieldset>
+        </form>
+    </section>
+    </main>
+    <footer>
+        <p>Creado por LadyToxic | Todos los derechos reservados</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
