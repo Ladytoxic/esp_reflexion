@@ -36,9 +36,9 @@ const menuList = document.querySelector("nav ul");
 menuButton.addEventListener("click", function () {
     menuList.classList.toggle("no-visible");
     if (menuList.classList.contains("no-visible")) {
-        menuButton.innerHTML = '<i class="bi bi-list"></i>';
+        menuButton.innerHTML = '<i class="ai-text-align-justified"></i>';
     } else {
-        menuButton.innerHTML = '<i class="bi bi-x-lg"></i>';
+        menuButton.innerHTML = '<i class="ai-cross"></i>';
     }
 });
 
@@ -58,7 +58,7 @@ links.forEach(link => {
         }
 
         menuList.classList.add("no-visible");
-        menuButton.innerHTML = '<i class="bi bi-list"></i>';
+        menuButton.innerHTML = '<i class="ai-text-align-justified"></i>';
     });
 });
 

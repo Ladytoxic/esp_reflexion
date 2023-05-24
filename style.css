@@ -1,5 +1,3 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
-
 * {
     padding: 0;
     margin: 0;
@@ -8,16 +6,16 @@
 }
 
 :root {
-    --color-bg: black;
+    --color-bg: rgba(0, 0, 0, 0.95);
     --color-text: grey;
     --color-primary: #d8ca00;
-    --color-secondary: #ff4800;
+    --color-secondary: #ff3c00;
     --color-danger: #c40000;
     --color-dark: #000000e6;
 
     --box-border: 0 1px 0.3rem rgba(0, 0, 0, 0.8);
-    --bg-avatar: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-    --bg-trans-flag: linear-gradient(to right, #fa88e7, #5bacee, white);
+    --bg-lgbt: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    --bg-trans-flag: linear-gradient(to top, #0097fc, #ff65bf, #f3f2f2, #ff65bf, #0097fc);
 
     --anim_fade-in: fade-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     --anim-fade-in-top: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -52,12 +50,13 @@ body {
     color: var(--color-dark);
     font-size: 3rem;
     transition: all 0.03s;
+    font-family: 'Public Sans', sans-serif;
 }
 
 .user span {
     font-size: 1rem;
     font-weight: 400;
-    color: rgb(197, 40, 40);
+    color: #cf2525;
 }
 
 .user .banner {
@@ -131,10 +130,16 @@ ul {
     filter: grayscale(0);
 }
 
-.user .redes_box a img {
-    width: 25px;
-    height: 25px;
-    object-fit: contain;
+.user .redes_box a i {
+    font-size: 2rem;
+}
+
+.ai-instagram-fill {
+    color: #E1306C;
+}
+
+.ai-facebook-fill {
+    color: #405de6;
 }
 
 nav {
@@ -169,9 +174,13 @@ nav ul li a {
     font-size: 2rem;
     font-weight: 600;
     background: none;
-    color: #ecebec;
+    color: #ffffff;
     transition: all 0.3s;
     display: none;
+}
+
+#menu i {
+    color: #ffffff;
 }
 
 #menu:hover {
@@ -198,7 +207,7 @@ footer {
 
 section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
@@ -232,10 +241,10 @@ option {
 }
 
 input[type='submit'] {
-    width: 70%;
+    width: 60%;
     border: none;
     border-radius: 1rem;
-    background-color: rgb(0, 148, 0);
+    background-color: #25D366;
     font-size: 1.1rem;
     font-weight: 500;
     color: #ffffff;
@@ -258,6 +267,7 @@ article {
 }
 
 h2 {
+    font-family: 'Public Sans', sans-serif;
     color: var(--color-dark);
     margin: 1rem 0;
 }
@@ -276,7 +286,6 @@ a:hover {
 #fecha {
     text-align: end;
     padding: 0.5rem;
-    background-color: var(--color-dark);
     z-index: 10;
 }
 
