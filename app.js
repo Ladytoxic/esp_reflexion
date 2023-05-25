@@ -71,7 +71,8 @@ const articlesData = [
     {
         id: 'quienes_somos',
         title: '¿Quiénes Somos?',
-        content: 'Somos una iniciativa impulsada por Amazonas del Sur, la Secretaría de Extensión de la Universidad de Quilmes y el Centro Cultural La Terraza.'
+        content: 'Somos una iniciativa impulsada por Amazonas del Sur, la Secretaría de Extensión de la Universidad de Quilmes y el Centro Cultural La Terraza.',
+        img: ['./assets/img/logo/Amazonas_del_sur.webp','./assets/img/logo/logo-UNQ-Extensión.webp','./assets/img/logo/Logo-de La-Terraza.webp']
     },
     {
         id: 'cuando_se_realiza',
@@ -128,9 +129,9 @@ $formulario.addEventListener('submit', function (event) {
     const telefono = $formulario.telefono.value;
     const mensaje = $formulario.mensaje.value;
 
-    const mensajeInicial = `Hola! Mi nombre es ${nombre}(${pronombres}). Estoy necesitando ponerme en contacto.`;
+    const mensajeInicial = `Hola, Mi nombre es *${nombre}* (${pronombres}). Recientemente visité el sitio web del Espacio de Reflexión TTNB+ y estoy necesitando ponerme en contacto con ustedes.`;
 
-    const textoCompleto = `${mensajeInicial}\n\n*Mensaje:*\n${mensaje}\n\n*Información de Contacto:*\nEmail: ${email}\nTeléfono: ${telefono}\nSaludos!`;
+    const textoCompleto = `${mensajeInicial}\n\n*Aquí está mi mensaje:*\n${mensaje}\n\n*Además, les proporciono mi información de contacto:*\nEmail: ${email}\nTeléfono: ${telefono}\n\nEspero su pronta respuesta y agradezco su atención.\nSaludos cordiales,\n${nombre}`;
 
     console.log(textoCompleto);
 
