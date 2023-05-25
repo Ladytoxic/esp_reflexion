@@ -1,0 +1,39 @@
+{
+    "titilo": "ESPACIO DE REFLEXIÓN TTNB+",
+    "subtitulo": "Centro Cultural La Terraza (Longchamps)",
+    "banner": "./assets/img/banner.jpg",
+    "img": "./assets/img/552.jpg",
+    "descripcion": "Este espacio está dirigido a la comunidad TTNB y Disidencias de todas las edades. Ofrece un lugar seguro para compartir experiencias, reflexionar sobre nuestras vivencias y, lo más importante, encontrar contención y herramientas para enfrentar los desafíos que se nos presentan.",
+    "contacto": {
+        "telefono": 5491162287249,
+        "nombre": "Almendra"
+    },
+    "instagram": "https://www.instagram.com/espacio_dereflexion",
+    "facebook": "https://www.facebook.com/profile.php?id=100083031925936&sk=about",
+    "articles": [
+        {
+            "id": "quienes_somos",
+            "title": "¿Quiénes Somos?",
+            "content": "Somos una iniciativa impulsada por Amazonas del Sur, la Secretaría de Extensión de la Universidad de Quilmes y el Centro Cultural La Terraza.",
+            "img": [
+                "./assets/img/logo/Amazonas_del_sur.webp",
+                "./assets/img/logo/logo-UNQ-Extensión.webp",
+                "./assets/img/logo/Logo-de La-Terraza.webp"
+            ]
+        },
+        {
+            "id": "cuando_se_realiza",
+            "title": "¿Cuándo se realiza?",
+            "content": "Realizamos 2 encuentros por mes de manera presencial.\n Te invitamos a unirte a nosotres en los segundos y cuartos sábados de cada mes, de 17:00 a 19:00 horas."
+        },
+        {
+            "id": "donde_se_hace",
+            "title": "¿Dónde se hace?",
+            "content": "En el centro cultural \"La Terraza\"\n Av. Aviación 690 (1° Piso)\n Longchamps (Frente a la estación)",
+            "colectivos": "74 - 79 - 51 - 501 - 506 - 515",
+            "tren": "Linea Roca (Pza. Constitución - Glew - A. Korn)",
+            "url_map": "https://goo.gl/maps/otkFb2aknxafechC6"
+        }
+    ],
+    "observacion": "Espacio Gratuito"
+}

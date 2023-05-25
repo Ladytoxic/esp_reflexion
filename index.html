@@ -12,18 +12,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/png">
     <script src="https://unpkg.com/akar-icons-fonts"></script>
-    <link href="https://api.fontshare.com/v2/css?f[]=public-sans@900&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=public-sans@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav>
         <button id="menu" aria-label="Abrir menú"><i class="ai-text-align-justified"></i></button>
-        <ul class="no-visible menu">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#quienes_somos">¿Quiénes Somos?</a></li>
-            <li><a href="#cuando_se_realiza">¿Cuándo se realiza?</a></li>
-            <li><a href="#donde_se_hace">¿Dónde se hace?</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+        <ul class="no-visible menu" id="menuList">
+
         </ul>
         <span id="fecha"></span>
     </nav>
@@ -31,7 +27,7 @@
         <img class="banner" src="./assets/img/banner.jpg" alt="Banner de ladytoxic" title="banner de perfil">
         <img class="avatar" src="./assets/img/552.jpg" alt="foro de perfil" title="Foto de perfil">
         <div class="user_info">
-            <h1>Espacio de Reflexión TTNB+</h1>
+            <h1 id="welcone">Espacio de Reflexión TTNB+</h1>
             <span><i class="ai-location"></i>Centro Cultural La Terraza (Longchamps)</span>
             <ul class="fade-in">
                 <li>
@@ -51,35 +47,37 @@
         </div>
     </header>
     <main>
-        <section></section>
+        <section class="articles">
+
+        </section>
+        <hr>
         <section id="contacto">
             <article>
                 <h2>¡Contactate, juntes somos poderoses!✨</h2>
                 <p>Por favor no dudes en expresar cualquier inquietud, ayuda que necesites, trataremos de asesorarte y
                     brindarte la información necesaria. Esperamos contribuir a una retroalimentación positiva.</p>
             </article>
-            <form id="ContactWhatsApp">
-                <fieldset class="form">
-                    <input name="nombre" type="text" placeholder="Nombre" required aria-label="Campo de Texto nombre">
-                    <select name="Pronombres" aria-label="pronombres">
-                        <option disabled selected>Pronombres</option>
-                        <option value="ella">(ella)</option>
-                        <option value="elle">(elle)</option>
-                        <option value="él">(él)</option>
-                        <option value="ella / elle">(ella / elle)</option>
-                        <option value="él / elle">(él / elle)</option>
-                        <option value="él / ella">(él / ella)</option>
-                        <option value="ella/él/elle">(ella / él / elle)</option>
-                    </select>
-                    <input name="email" type="email" placeholder="Email" required aria-label="Campo de email">
-                    <input name="telefono" type="number" placeholder="Número de teléfono" required
-                        aria-label="Campo número de telefono">
-                    <textarea name="mensaje" id="msg" placeholder="Mensaje" required
-                        aria-label="Campo de Texto mensaje"></textarea>
-                    <input type="submit" value="Enviar" aria-label="botón enviar">
-                </fieldset>
+            <form id="ContactWhatsApp" class="form-contacto">
+                <input name="nombre" type="text" placeholder="Nombre" required aria-label="Campo de Texto nombre">
+                <select name="Pronombres" aria-label="pronombres">
+                    <option disabled selected>Pronombres</option>
+                    <option value="ella">(ella)</option>
+                    <option value="elle">(elle)</option>
+                    <option value="él">(él)</option>
+                    <option value="ella / elle">(ella / elle)</option>
+                    <option value="él / elle">(él / elle)</option>
+                    <option value="él / ella">(él / ella)</option>
+                    <option value="ella/él/elle">(ella / él / elle)</option>
+                </select>
+                <input name="email" type="email" placeholder="Email" required aria-label="Campo de email">
+                <input name="telefono" type="number" placeholder="Número de teléfono" required
+                    aria-label="Campo número de telefono">
+                <textarea name="mensaje" id="msg" placeholder="Mensaje" required
+                    aria-label="Campo de Texto mensaje"></textarea>
+                <input type="submit" value="Enviar" aria-label="botón enviar">
             </form>
         </section>
+        <button id="goToTopBtn" class="go-to-top-button" aria-label="Mover scroll al inicio de pagina"><i class="ai-arrow-up"></i></button>
     </main>
     <footer>
         <h4>Creado por LadyToxic | Todos los derechos reservados</h4>

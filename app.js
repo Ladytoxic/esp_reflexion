@@ -7,11 +7,13 @@ setInterval(() => {
     $fecha.innerText = fechaLegible;
 }, 1000);
 
+document.addEventListener('DOMContentLoaded', Welcome);
+
 // titulo 
 function Welcome() {
-    const $header = document.getElementById('header');
+    const $header = document.getElementById('welcone');
     const propText = 'e';
-    $header.innerHTML = `<h1>Bienvenid<span class="prop">${propText}</span>s a Disidir</h1>`;
+    $header.innerHTML = `<h1 class="welcone">Bienvenid<strong class="prop">${propText}</strong> al <br> Espacio de Reflexión TTNB+</h1>`;
     const propElements = $header.querySelectorAll('.prop');
     let index = 0;
     function changePropText() {
@@ -29,7 +31,6 @@ function Welcome() {
 };
 
 // navbar 
-
 const menuButton = document.getElementById("menu");
 const menuList = document.querySelector("nav ul");
 
@@ -40,6 +41,24 @@ menuButton.addEventListener("click", function () {
     } else {
         menuButton.innerHTML = '<i class="ai-cross"></i>';
     }
+});
+// Datos para generar los elementos del menú
+const menuData = [
+    { text: 'Inicio', href: '#' },
+    { text: '¿Quiénes Somos?', href: '#quienes_somos' },
+    { text: '¿Cuándo se realiza?', href: '#cuando_se_realiza' },
+    { text: '¿Dónde se hace?', href: '#donde_se_hace' },
+    { text: 'Contacto', href: '#contacto' }
+];
+
+// Generar los elementos del menú dinámicamente
+menuData.forEach(item => {
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = item.href;
+    link.textContent = item.text;
+    listItem.appendChild(link);
+    menuList.appendChild(listItem);
 });
 
 const links = document.querySelectorAll('nav a');
@@ -62,7 +81,6 @@ links.forEach(link => {
     });
 });
 
-
 // articles
 const container = document.querySelector('section');
 
@@ -72,7 +90,7 @@ const articlesData = [
         id: 'quienes_somos',
         title: '¿Quiénes Somos?',
         content: 'Somos una iniciativa impulsada por Amazonas del Sur, la Secretaría de Extensión de la Universidad de Quilmes y el Centro Cultural La Terraza.',
-        img: ['./assets/img/logo/Amazonas_del_sur.webp','./assets/img/logo/logo-UNQ-Extensión.webp','./assets/img/logo/Logo-de La-Terraza.webp']
+        img: ['./assets/img/logo/logo-UNQ-Extension.webp', './assets/img/logo/Amazonas_del_sur.webp', './assets/img/logo/Logo-de La-Terraza.webp']
     },
     {
         id: 'cuando_se_realiza',
@@ -106,15 +124,27 @@ articlesData.forEach(articleData => {
     article.appendChild(title);
     article.appendChild(content);
 
+    if (articleData.img) {
+        const imageDiv = document.createElement('div');
+        imageDiv.classList.add('box_img');
+
+        articleData.img.forEach(imgSrc => {
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            imageDiv.appendChild(img);
+        });
+
+        article.appendChild(imageDiv);
+    }
+
     if (articleData.url_map) {
         const mapLink = document.createElement('a');
         mapLink.innerHTML = `<a href="${articleData.url_map}" target="_blank">(Abrir mapa)</a>`;
         article.appendChild(mapLink);
     }
+
     container.appendChild(article);
 });
-
-
 
 // formulario
 const $formulario = document.getElementById('ContactWhatsApp');
@@ -133,8 +163,6 @@ $formulario.addEventListener('submit', function (event) {
 
     const textoCompleto = `${mensajeInicial}\n\n*Aquí está mi mensaje:*\n${mensaje}\n\n*Además, les proporciono mi información de contacto:*\nEmail: ${email}\nTeléfono: ${telefono}\n\nEspero su pronta respuesta y agradezco su atención.\nSaludos cordiales,\n${nombre}`;
 
-    console.log(textoCompleto);
-
     const enlaceWhatsApp = `https://wa.me/${TEL}?text=${encodeURIComponent(textoCompleto)}`;
     window.open(enlaceWhatsApp, '_blank');
 });
@@ -148,11 +176,24 @@ $textarea.addEventListener('input', () => {
     $textarea.style.height = `${initialHeigth}px`;
     const newHeight = $textarea.scrollHeight + initialHeigth;
     $textarea.style.height = `${newHeight}px`;
-    console.log(newHeight)
 });
 
+// Obtener una referencia al botón
+const goToTopBtn = document.getElementById('goToTopBtn');
 
+// Mostrar u ocultar el botón basado en la posición de desplazamiento
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 400) {
+        goToTopBtn.style.display = 'block';
+    } else {
+        goToTopBtn.style.display = 'none';
+    }
+});
 
-
-
-
+// Hacer que el botón lleve al usuario hacia arriba cuando se hace clic
+goToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});

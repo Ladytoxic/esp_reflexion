@@ -1,3 +1,6 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -32,6 +35,10 @@ body {
     color: var(--color-text);
 }
 
+h1, h2, h3 {
+    font-family: 'Public Sans' sans-serif;
+}
+
 .banner,
 .avatar {
     user-select: none;
@@ -45,17 +52,25 @@ body {
     animation: var(--anim_fade-in);
 }
 
+
+.user #welcone {
+
+    font-weight: 600;
+    animation: var(--anim_fade-in);
+}
+
 .user h1 {
     text-align: center;
-    display: inline-block;
     color: var(--color-dark);
     font-size: 3rem;
     transition: all 0.03s;
-    font-family: 'Public Sans', sans-serif;
+
 
 }
 
 .user span {
+    display: block;
+    text-align: center;
     font-size: 1rem;
     font-weight: 400;
     color: #cf2525;
@@ -208,26 +223,19 @@ footer {
 }
 
 section {
+    margin: 2rem 0;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
     gap: 2rem;
     animation: var(--anim_fade-in);
 }
 
-.form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.form-contacto {
+    padding: 2rem;
     max-width: 500px;
     border-radius: 1rem;
-}
-
-legend {
-    text-align: center;
-    padding: 1rem;
 }
 
 input,
@@ -235,7 +243,7 @@ textarea,
 select,
 option {
     padding: 0.5rem;
-    margin: 1rem;
+    margin: 0.8rem 0;
     width: 100%;
     border: none;
     box-shadow: var(--box-border);
@@ -243,7 +251,9 @@ option {
 }
 
 input[type='submit'] {
-    width: 60%;
+    margin: auto;
+    display: block;
+    width: 50%;
     border: none;
     border-radius: 1rem;
     background-color: #25D366;
@@ -251,6 +261,7 @@ input[type='submit'] {
     font-weight: 500;
     color: #ffffff;
     text-shadow: 0 0 0.5rem var(--color-dark);
+    cursor: pointer;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -261,19 +272,37 @@ input[type=number]::-webkit-outer-spin-button {
 
 article {
     animation: var(--anim_fade-in);
-    min-height: 30vh;
     min-width: 280px;
     max-width: 500px;
     margin: 1rem 0;
-
 }
 
+
 h2 {
-    font-family: 'Public Sans', sans-serif;
     color: var(--color-dark);
     margin: 1rem 0;
 }
+article .box_img {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    animation: var(--anim-fade-in-top);
+}
+article .box_img img {
+    width: 90px;
+    height: 70px;
+    object-fit: contain;
+    filter: grayscale(80%);
+    transition: all 0.3s;
+}
 
+article .box_img img:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
 
 a {
     text-decoration: none;
@@ -291,6 +320,27 @@ a:hover {
     padding: 0.5rem;
     z-index: 10;
 }
+
+.go-to-top-button {
+    position: sticky;
+    float: right;
+    bottom: 1rem;
+    right: 0.5rem;
+    display: none;
+    padding: 10px;
+    background-color: var(--color-secondary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: var(--anim-fade-in-right);
+    font-size: 1.2rem;
+  }
+    
+  .go-to-top-button:hover {
+    background-color: var(--color-text);
+  } 
 
 @media screen and (max-width: 800px) {
 
@@ -352,13 +402,14 @@ a:hover {
     }
 
     .user span,
-    .user h1 {
+    .user h1,
+    .welcone {
         display: block;
         text-align: center;
     }
 
     .user h1 {
-        line-height: 2.5rem;
+        font-size: 2rem;
     }
 
     .user .user_info {
@@ -381,9 +432,12 @@ a:hover {
 
     article {
         text-align: center;
-        margin: auto;
-        min-height: 30vh;
     }
+
+    article .box_img img{
+        width: 80px;
+    }
+
 
 }
 
