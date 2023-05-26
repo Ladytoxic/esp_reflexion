@@ -90,7 +90,7 @@ const articlesData = [
         id: 'quienes_somos',
         title: '¿Quiénes Somos?',
         content: 'Somos una iniciativa impulsada por Amazonas del Sur, la Secretaría de Extensión de la Universidad de Quilmes y el Centro Cultural La Terraza.',
-        img: ['./assets/img/logo/logo-UNQ-Extension.webp', './assets/img/logo/Amazonas_del_sur.webp', './assets/img/logo/Logo-de La-Terraza.webp']
+        img: ['./assets/img/logo/logo-UNQ-Extension.webp', './assets/img/logo/Amazonas_del_sur.webp', './assets/img/logo/Logo-de-La-Terraza.webp']
     },
     {
         id: 'cuando_se_realiza',
