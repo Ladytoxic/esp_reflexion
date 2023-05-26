@@ -106,15 +106,14 @@ h3 {
     padding: 2rem;
 }
 
-
 ul {
-    margin: 1.5rem 0;
     list-style: none;
 }
 
 .user_info ul li p {
     padding: 1rem 0;
     max-width: 700px;
+    margin-bottom: 1.5rem;
 }
 
 .user .redes {
@@ -177,7 +176,7 @@ nav {
 nav ul li {
     list-style: none;
     display: inline-block;
-    margin: 0 0.2rem;
+    margin: 0 0.5rem;
 }
 
 nav ul li a {
@@ -325,7 +324,7 @@ a:hover {
 }
 
 .go-to-top-button {
-    align-self: flex-end;
+    align-self: self-end;
     position: sticky;
     bottom: 1rem;
     right: 0.5rem;
@@ -336,8 +335,8 @@ a:hover {
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s;
-    animation: var(--anim-fade-in-right);
+    transition: display 0.3s;
+    animation: var(--anim_fade-in);
     font-size: 1.2rem;
     width: 50px;
     height: 50px;
@@ -392,7 +391,6 @@ a:hover {
     .menu li {
         margin: 1rem;
         display: block;
-        width: 100%;
     }
 
     main {
