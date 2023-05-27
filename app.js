@@ -192,6 +192,7 @@ function generarArticulos(data) {
 
 const URL_API = './assets/Profile.json';
 let dataContact;
+Let dataTitulo;
 const $loader = document.getElementById('loader');
 
 // Consumo de la API
@@ -206,6 +207,7 @@ fetch(URL_API)
         generateMenu(data.articles);
         generarHeader(data);
         generarArticulos(data.articles);
+        dataTitulo = data.titulo;
         dataContact = data.contacto.telefono;
         setTimeout(() => {
             $loader.style.opacity = 0;
@@ -231,7 +233,7 @@ $formulario.addEventListener('submit', function (event) {
     const telefono = $formulario.telefono.value;
     const mensaje = $formulario.mensaje.value;
 
-    const mensajeInicial = `Hola, Mi nombre es *${nombre}* (${pronombres}). Recientemente visité el sitio web del Espacio de Reflexión TTNB+ y estoy necesitando ponerme en contacto con ustedes.`;
+    const mensajeInicial = `Hola, Mi nombre es *${nombre}* (${pronombres}). Recientemente visité el sitio web del ${dataTitulo} y estoy necesitando ponerme en contacto con ustedes.`;
 
     const textoCompleto = `${mensajeInicial}\n\n*Aquí está mi mensaje:*\n${mensaje}\n\n*Además, les proporciono mi información de contacto:*\nEmail: ${email}\nTeléfono: ${telefono}\n\nEspero su pronta respuesta y agradezco su atención.\nSaludos cordiales,\n${nombre}`;
 
