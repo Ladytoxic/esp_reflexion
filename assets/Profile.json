@@ -1,5 +1,5 @@
 {
-    "titilo": "ESPACIO DE REFLEXIÓN TTNB+",
+    "titulo": "ESPACIO DE REFLEXIÓN TTNB+",
     "subtitulo": "Centro Cultural La Terraza (Longchamps)",
     "banner": "./assets/img/banner.jpg",
     "img": "./assets/img/552.jpg",
@@ -16,7 +16,7 @@
             "title": "¿Quiénes Somos?",
             "content": "Somos una iniciativa impulsada por Amazonas del Sur, la Secretaría de Extensión de la Universidad de Quilmes y el Centro Cultural La Terraza.",
             "img": [
-                "./assets/img/logo/logo-UNQ-Extensión.webp",
+                "./assets/img/logo/logo-UNQ-Extension.webp",
                 "./assets/img/logo/Amazonas_del_sur.webp",
                 "./assets/img/logo/Logo-de-La-Terraza.webp"
             ]

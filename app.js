@@ -7,28 +7,7 @@ setInterval(() => {
     $fecha.innerText = fechaLegible;
 }, 1000);
 
-document.addEventListener('DOMContentLoaded', Welcome);
 
-// titulo 
-function Welcome() {
-    const $header = document.getElementById('welcone');
-    const propText = 'e';
-    $header.innerHTML = `<h1 class="welcone">Bienvenid<strong class="prop">${propText}</strong> al <br> Espacio de Reflexión TTNB+</h1>`;
-    const propElements = $header.querySelectorAll('.prop');
-    let index = 0;
-    function changePropText() {
-        let texts = ['a', '@', 'x', 'o', 'e', '*'];
-        if (index >= texts.length) {
-            index = 0;
-        }
-        for (let i = 0; i < propElements.length; i++) {
-            propElements[i].textContent = texts[index];
-        }
-        index++;
-    }
-    setInterval(changePropText, 1000);
-    return $header;
-};
 
 // navbar 
 const menuButton = document.getElementById("menu");
@@ -42,116 +21,209 @@ menuButton.addEventListener("click", function () {
         menuButton.innerHTML = '<i class="ai-cross"></i>';
     }
 });
-// Datos para generar los elementos del menú
-const menuData = [
-    { text: 'Inicio', href: '#' },
-    { text: '¿Quiénes Somos?', href: '#quienes_somos' },
-    { text: '¿Cuándo se realiza?', href: '#cuando_se_realiza' },
-    { text: '¿Dónde se hace?', href: '#donde_se_hace' },
-    { text: 'Contacto', href: '#contacto' }
-];
+//Esta función genera los enlaces a las secciónes de la paginas en el navbar
+function generateMenu(data) {
+    const articlesData = data.map(article => {
+        return {
+            text: article.title,
+            href: `#${article.id}`
+        };
+    });
 
-// Generar los elementos del menú dinámicamente
-menuData.forEach(item => {
-    const listItem = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = item.href;
-    link.textContent = item.text;
-    listItem.appendChild(link);
-    menuList.appendChild(listItem);
-});
+    articlesData.unshift({
+        text: 'Inicio',
+        href: '#'
+    });
 
-const links = document.querySelectorAll('nav a');
+    articlesData.push({
+        text: 'Contacto',
+        href: '#contacto'
+    });
+    //Genera los enlaces extraidos de los articulos que provienen de la API
+    articlesData.forEach(item => {
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = item.href;
+        link.textContent = item.text;
+        listItem.appendChild(link);
+        menuList.appendChild(listItem);
+    });
 
-links.forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
+    const links = document.querySelectorAll('nav a');
 
-        if (targetId === "") {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else if (targetElement) {
-            const targetOffset = targetElement.offsetTop - 90;
-            window.scrollTo({ top: targetOffset, behavior: 'smooth' });
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetId === "") {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (targetElement) {
+                const targetOffset = targetElement.offsetTop - 90;
+                window.scrollTo({ top: targetOffset, behavior: 'smooth' });
+            }
+
+            menuList.classList.add("no-visible");
+            menuButton.innerHTML = '<i class="ai-text-align-justified"></i>';
+        });
+    });
+}
+
+//Genera el perfil
+function generarHeader(data) {
+    // Obtener una referencia al contenedor donde se insertarán los elementos generados
+    const profile = document.getElementById('profile');
+
+    // Generar los elementos HTML dinámicamente
+    const bannerImg = document.createElement('img');
+    bannerImg.classList.add('banner');
+    bannerImg.src = data.banner;
+    bannerImg.alt = 'Banner de ' + `${data.titulo}`;
+    bannerImg.title = 'banner de perfil ' + `${data.titulo}`;
+    profile.appendChild(bannerImg);
+
+    const avatarImg = document.createElement('img');
+    avatarImg.classList.add('avatar');
+    avatarImg.src = data.img;
+    avatarImg.alt = 'foro de perfil ' + `${data.titulo}`;
+    avatarImg.title = 'Foto de perfil ' + `${data.titulo}`;
+    profile.appendChild(avatarImg);
+
+    const userInfoDiv = document.createElement('div');
+    userInfoDiv.classList.add('user_info');
+
+    const welcomeHeading = document.createElement('h1');
+    welcomeHeading.id = 'welcone';
+    welcomeHeading.textContent = data.titulo;
+    userInfoDiv.appendChild(welcomeHeading);
+
+    const locationSpan = document.createElement('span');
+    locationSpan.innerHTML = `<i class="ai-location"></i>${data.subtitulo}`;
+    userInfoDiv.appendChild(locationSpan);
+
+    const infoList = document.createElement('ul');
+    infoList.classList.add('fade-in');
+
+    const descriptionItem = document.createElement('li');
+    descriptionItem.innerHTML = `<p>${data.descripcion}</p>`;
+    infoList.appendChild(descriptionItem);
+
+    const redesItem = document.createElement('li');
+    redesItem.classList.add('redes');
+    const redesBoxDiv = document.createElement('div');
+    redesBoxDiv.classList.add('redes_box');
+    redesBoxDiv.innerHTML = `
+    <a href="${data.facebook}" target="_blank" aria-label="Link de Facebook"><i class="ai-facebook-fill"></i></a>
+    <a href="${data.instagram}" target="_blank" aria-label="Link de Instagram"><i class="ai-instagram-fill"></i></a>
+`;
+    redesItem.appendChild(redesBoxDiv);
+    infoList.appendChild(redesItem);
+
+    userInfoDiv.appendChild(infoList);
+    profile.appendChild(userInfoDiv);
+    Welcome(data.titulo);
+}
+
+// titulo 
+function Welcome(titulo) {
+    const $h1 = document.getElementById('welcone');
+    const propText = 'e';
+    $h1.innerHTML = `<h1 id="welcone">Bienvenid<strong class="prop">${propText}</strong> al <br> ${titulo}</h1>`;
+    const propElements = $h1.querySelectorAll('.prop');
+    let index = 0;
+    function changePropText() {
+        let texts = ['a', '@', 'x', 'o', 'e', '*'];
+        if (index >= texts.length) {
+            index = 0;
         }
-
-        menuList.classList.add("no-visible");
-        menuButton.innerHTML = '<i class="ai-text-align-justified"></i>';
-    });
-});
-
-// articles
-const container = document.querySelector('section');
-
-// Datos de los artículos
-const articlesData = [
-    {
-        id: 'quienes_somos',
-        title: '¿Quiénes Somos?',
-        content: 'Somos una iniciativa impulsada por Amazonas del Sur, la Secretaría de Extensión de la Universidad de Quilmes y el Centro Cultural La Terraza.',
-        img: ['./assets/img/logo/logo-UNQ-Extension.webp', './assets/img/logo/Amazonas_del_sur.webp', './assets/img/logo/Logo-de-La-Terraza.webp']
-    },
-    {
-        id: 'cuando_se_realiza',
-        title: '¿Cuándo se realiza?',
-        content: 'Realizamos 2 encuentros por mes de manera presencial.\n Te invitamos a unirte a nosotres en los segundos y cuartos sábados de cada mes, de 17:00 a 19:00 horas.'
-    },
-    {
-        id: 'donde_se_hace',
-        title: '¿Dónde se hace?',
-        content: 'En el centro cultural "La Terraza"\n Av. Aviación 690 (1° Piso)\n Longchamps (Frente a la estación)',
-        url_map: 'https://goo.gl/maps/otkFb2aknxafechC6'
+        for (let i = 0; i < propElements.length; i++) {
+            propElements[i].textContent = texts[index];
+        }
+        index++;
     }
-];
+    setInterval(changePropText, 1000);
+    return $h1;
+};
 
-// Generar los elementos y agregarlos al contenedor
-articlesData.forEach(articleData => {
-    const article = document.createElement('article');
-    article.id = articleData.id;
+//Sección Articulos
+function generarArticulos(data) {
+    const section = document.querySelector('section');
+    data.forEach(articleData => {
+        const article = document.createElement('article');
+        article.id = articleData.id;
 
-    const title = document.createElement('h2');
-    title.textContent = articleData.title;
+        const title = document.createElement('h2');
+        title.textContent = articleData.title;
 
-    const content = document.createElement('p');
-    const lines = articleData.content.split('\n');
+        const content = document.createElement('p');
+        const lines = articleData.content.split('\n');
 
-    lines.forEach(line => {
-        content.appendChild(document.createTextNode(line));
-        content.appendChild(document.createElement('br'));
-    });
-
-    article.appendChild(title);
-    article.appendChild(content);
-
-    if (articleData.img) {
-        const imageDiv = document.createElement('div');
-        imageDiv.classList.add('box_img');
-
-        articleData.img.forEach(imgSrc => {
-            const img = document.createElement('img');
-            img.src = imgSrc;
-            imageDiv.appendChild(img);
+        lines.forEach(line => {
+            content.appendChild(document.createTextNode(line));
+            content.appendChild(document.createElement('br'));
         });
 
-        article.appendChild(imageDiv);
-    }
+        article.appendChild(title);
+        article.appendChild(content);
 
-    if (articleData.url_map) {
-        const mapLink = document.createElement('a');
-        mapLink.innerHTML = `<a href="${articleData.url_map}" target="_blank">(Abrir mapa)</a>`;
-        article.appendChild(mapLink);
-    }
+        if (articleData.img) {
+            const imageDiv = document.createElement('div');
+            imageDiv.classList.add('box_img');
 
-    container.appendChild(article);
-});
+            articleData.img.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                imageDiv.appendChild(img);
+            });
+
+            article.appendChild(imageDiv);
+        }
+
+        if (articleData.url_map) {
+            const mapLink = document.createElement('a');
+            mapLink.innerHTML = `<a href="${articleData.url_map}" target="_blank">(Abrir mapa)</a>`;
+            article.appendChild(mapLink);
+        }
+
+        section.appendChild(article);
+    });
+}
+
+const URL_API = './assets/Profile.json';
+let dataContact;
+const $loader = document.getElementById('loader');
+
+// Consumo de la API
+fetch(URL_API)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la solicitud');
+        }
+        return response.json();
+    })
+    .then(data => {
+        generateMenu(data.articles);
+        generarHeader(data);
+        generarArticulos(data.articles);
+        dataContact = data.contacto.telefono;
+        setTimeout(() => {
+            $loader.style.opacity = 0;
+            $loader.classList.add('hidden');
+        }, 2000);
+    })
+    .catch(error => {
+        // Manejo de errores
+        console.error(error);
+        $loader.innerHTML = `<h2 class="error">${error}</h2>`
+    });
 
 // formulario
 const $formulario = document.getElementById('ContactWhatsApp');
 
 $formulario.addEventListener('submit', function (event) {
     event.preventDefault();
-    const TEL = '+5491162287249';
+    const TEL = dataContact;
 
     const nombre = $formulario.nombre.value;
     const pronombres = $formulario.Pronombres.value;
@@ -163,7 +235,7 @@ $formulario.addEventListener('submit', function (event) {
 
     const textoCompleto = `${mensajeInicial}\n\n*Aquí está mi mensaje:*\n${mensaje}\n\n*Además, les proporciono mi información de contacto:*\nEmail: ${email}\nTeléfono: ${telefono}\n\nEspero su pronta respuesta y agradezco su atención.\nSaludos cordiales,\n${nombre}`;
 
-    const enlaceWhatsApp = `https://wa.me/${TEL}?text=${encodeURIComponent(textoCompleto)}`;
+    const enlaceWhatsApp = `https://wa.me/+${TEL}?text=${encodeURIComponent(textoCompleto)}`;
     window.open(enlaceWhatsApp, '_blank');
 });
 
@@ -178,12 +250,12 @@ $textarea.addEventListener('input', () => {
     $textarea.style.height = `${newHeight}px`;
 });
 
-// Obtener una referencia al botón
+//Botón volver arriba
 const goToTopBtn = document.getElementById('goToTopBtn');
 
 // Mostrar u ocultar el botón basado en la posición de desplazamiento
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 400) {
+    if (window.pageYOffset > 500) {
         goToTopBtn.style.display = 'block';
     } else {
         goToTopBtn.style.display = 'none';
@@ -197,3 +269,12 @@ goToTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+let tituloPrev = document.title;
+window.addEventListener('blur', () => {
+    tituloPrev = document.title
+    document.title = '¡No te vayas! ¡Vuelve! 😱'
+})
+window.addEventListener('focus', () => {
+    document.title = tituloPrev
+})

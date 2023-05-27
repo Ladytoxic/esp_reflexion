@@ -11,43 +11,22 @@
     <meta name="author" content="LadyToxic" />
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/png">
-    <script src="https://unpkg.com/akar-icons-fonts"></script>
     <link href="https://api.fontshare.com/v2/css?f[]=public-sans@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/akar-icons-fonts"></script>
 </head>
 
 <body>
+    <div id="loader">
+        <img src="./assets/img/icon.png" class="contenedor fade-in">
+    </div>
     <nav>
         <button id="menu" aria-label="Abrir menú"><i class="ai-text-align-justified"></i></button>
         <ul class="no-visible menu" id="menuList"></ul>
         <span id="fecha"></span>
     </nav>
-    <header class="user">
-        <img class="banner" src="./assets/img/banner.jpg" alt="Banner de ladytoxic" title="banner de perfil">
-        <img class="avatar" src="./assets/img/552.jpg" alt="foro de perfil" title="Foto de perfil">
-        <div class="user_info">
-            <h1 id="welcone">Espacio de Reflexión TTNB+</h1>
-            <span><i class="ai-location"></i>Centro Cultural La Terraza (Longchamps)</span>
-            <ul class="fade-in">
-                <li>
-                    <p>Este espacio está dirigido a la comunidad TTNB y Disidencias de todas las edades. Ofrece un lugar
-                        seguro para compartir experiencias, reflexionar sobre nuestras vivencias y, lo más importante,
-                        encontrar contención y herramientas para enfrentar los desafíos que se nos presentan.</p>
-                </li>
-                <li class="redes">
-                    <div class="redes_box">
-                        <a href="https://www.facebook.com/profile.php?id=100083031925936&sk=about" target="_blank"
-                            aria-label="Link de Facebook"><i class="ai-facebook-fill"></i></a>
-                        <a href="https://www.instagram.com/espacio_dereflexion" target="_blank"
-                            aria-label="Link de Instagram"><i class="ai-instagram-fill"></i></a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </header>
+    <header class="user" id="profile"></header>
     <main>
-        <section class="articles">
-
-        </section>
+        <section class="articles"></section>
         <hr>
         <section id="contacto">
             <article>
@@ -75,7 +54,8 @@
                 <input type="submit" value="Enviar" aria-label="botón enviar">
             </form>
         </section>
-        <button id="goToTopBtn" class="go-to-top-button" aria-label="Mover scroll al inicio de pagina"><i class="ai-arrow-up"></i></button>
+        <button id="goToTopBtn" class="go-to-top-button" aria-label="Mover scroll al inicio de pagina"><i
+                class="ai-arrow-up"></i></button>
     </main>
     <footer>
         <h4>Creado por LadyToxic | Todos los derechos reservados</h4>

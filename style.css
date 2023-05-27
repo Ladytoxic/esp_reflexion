@@ -18,7 +18,7 @@
     --bg-trans-flag: linear-gradient(to top, #0097fc, #ff65bf, #f3f2f2, #ff65bf, #0097fc);
     --bg-nb-flag: linear-gradient(to right, #fcf431, white, #9d58d2, #282828);
 
-    --anim_fade-in: fade-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    --anim-fade-in: fade-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     --anim-fade-in-top: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     --anim-fade-in-left: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     --anim-fade-in-right: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -32,10 +32,39 @@ body {
     color: var(--color-text);
 }
 
+#loader {
+background-color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    overflow: hidden;
+    transition: opacity 0.5s;
+    opacity: 1;
+}
+
+#loader .contenedor {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+#loader.hidden {
+    pointer-events: none;
+}
+
+.error {
+    color: var(--color-danger);
+}
+
 h1,
 h2,
 h3 {
-    font-family: 'Public Sans' sans-serif;
+    font-family: 'Public Sans', sans-serif;
 }
 
 .banner,
@@ -48,14 +77,13 @@ h3 {
     margin: 0 2rem;
     border-radius: 0 0 1rem 1rem;
     box-shadow: var(--box-border);
-    animation: var(--anim_fade-in);
+    animation: var(--anim-fade-in);
 }
 
 
 .user #welcone {
-
     font-weight: 600;
-    animation: var(--anim_fade-in);
+    animation: var(--anim-fade-in);
 }
 
 .user h1 {
@@ -63,8 +91,6 @@ h3 {
     color: var(--color-dark);
     font-size: 3rem;
     transition: all 0.03s;
-
-
 }
 
 .user span {
@@ -176,7 +202,7 @@ nav {
 nav ul li {
     list-style: none;
     display: inline-block;
-    margin: 0 0.5rem;
+    margin: 0.5rem;
 }
 
 nav ul li a {
@@ -210,7 +236,7 @@ main {
     border-radius: 1rem;
     min-height: 100vh;
     box-shadow: var(--box-border);
-    animation: var(--anim_fade-in);
+    animation: var(--anim-fade-in);
 }
 
 footer {
@@ -229,7 +255,7 @@ section {
     align-items: stretch;
     flex-wrap: wrap;
     gap: 2rem;
-    animation: var(--anim_fade-in);
+    animation: var(--anim-fade-in);
 }
 
 .form-contacto {
@@ -271,7 +297,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 article {
-    animation: var(--anim_fade-in);
+    animation: var(--anim-fade-in);
     min-width: 280px;
     max-width: 500px;
     margin: 1rem 0;
@@ -336,10 +362,11 @@ a:hover {
     border-radius: 50%;
     cursor: pointer;
     transition: display 0.3s;
-    animation: var(--anim_fade-in);
+    animation: var(--anim-fade-in);
     font-size: 1.2rem;
     width: 50px;
     height: 50px;
+    overflow: hidden;
 }
 
 .go-to-top-button:hover {
@@ -460,7 +487,7 @@ a:hover {
 
 @keyframes fade-in-top {
     0% {
-        transform: translateY(-50px);
+        transform: translateY(-20px);
         opacity: 0;
     }
 
@@ -472,7 +499,7 @@ a:hover {
 
 @keyframes fade-in-left {
     0% {
-        transform: translateX(-100px);
+        transform: translateX(-20px);
         opacity: 0;
     }
 
@@ -484,7 +511,7 @@ a:hover {
 
 @keyframes fade-in-right {
     0% {
-        transform: translateX(100px);
+        transform: translateX(25px);
         opacity: 0;
     }
 
@@ -493,3 +520,28 @@ a:hover {
         opacity: 1;
     }
 }
+
+ @keyframes heartbeat {
+    from {
+      transform: scale(1);
+      transform-origin: center center;
+      animation-timing-function: ease-out;
+    }
+    10% {
+      transform: scale(0.91);
+      animation-timing-function: ease-in;
+    }
+    17% {
+      transform: scale(0.98);
+      animation-timing-function: ease-out;
+    }
+    33% {
+      transform: scale(0.87);
+      animation-timing-function: ease-in;
+    }
+    45% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+    }
+  }
+  
