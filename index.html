@@ -8,7 +8,7 @@
     <title>Espacio de Reflexión TTNB+</title>
     <meta name="description"
         content="Este espacio está dirigido a la comunidad TTNB y Disidencias de todas las edades. Ofrece un lugar seguro para compartir experiencias, reflexionar sobre nuestras vivencias y, lo más importante, encontrar contención y herramientas para enfrentar los desafíos que se nos presentan.">
-    <meta name="author" content="LadyToxic" />
+    <meta name="author" content="LadyToxic"/>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/png">
     <link href="https://api.fontshare.com/v2/css?f[]=public-sans@700&display=swap" rel="stylesheet">
@@ -16,19 +16,24 @@
 </head>
 
 <body>
+    <!-- animacion de inicio -->
     <div id="loader">
         <img src="./assets/img/icon.png" class="contenedor fade-in">
     </div>
+    <!-- El contenido de la pagina se generan dinamicamicamente desde App.js -->
     <nav>
         <button id="menu" aria-label="Abrir menú"><i class="ai-text-align-justified"></i></button>
-        <ul class="no-visible menu" id="menuList"></ul>
+        <ul class="no-visible menu" id="menuList">
+        </ul>
         <span id="fecha"></span>
     </nav>
     <header class="user" id="profile"></header>
     <main>
-        <section class="articles"></section>
+        <section class="articles">
+        </section>
         <hr>
         <section id="contacto">
+            <!-- formulario de contacto -->
             <article>
                 <h2>¡Contactate, juntes somos poderoses!✨</h2>
                 <p>Por favor no dudes en expresar cualquier inquietud, ayuda que necesites, trataremos de asesorarte y
@@ -54,6 +59,7 @@
                 <input type="submit" value="Enviar" aria-label="botón enviar">
             </form>
         </section>
+        <!-- boton volver arriva -->
         <button id="goToTopBtn" class="go-to-top-button" aria-label="Mover scroll al inicio de pagina"><i
                 class="ai-arrow-up"></i></button>
     </main>

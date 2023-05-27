@@ -1,3 +1,4 @@
+//fecha y hora legible
 const $fecha = document.getElementById('fecha');
 setInterval(() => {
     const fechaActual = new Date();
@@ -6,8 +7,6 @@ setInterval(() => {
     const fechaLegible = fechaActual.toLocaleDateString('es-ES', Fecha) + ' ' + fechaActual.toLocaleTimeString('es-ES', Hora);
     $fecha.innerText = fechaLegible;
 }, 1000);
-
-
 
 // navbar 
 const menuButton = document.getElementById("menu");
@@ -115,8 +114,8 @@ function generarHeader(data) {
     redesBoxDiv.classList.add('redes_box');
     redesBoxDiv.innerHTML = `
     <a href="${data.facebook}" target="_blank" aria-label="Link de Facebook"><i class="ai-facebook-fill"></i></a>
-    <a href="${data.instagram}" target="_blank" aria-label="Link de Instagram"><i class="ai-instagram-fill"></i></a>
-`;
+    <a href="${data.instagram}" target="_blank" aria-label="Link de Instagram"><i class="ai-instagram-fill"></i></a>`;
+
     redesItem.appendChild(redesBoxDiv);
     infoList.appendChild(redesItem);
 
@@ -241,7 +240,6 @@ $formulario.addEventListener('submit', function (event) {
     window.open(enlaceWhatsApp, '_blank');
 });
 
-
 const $textarea = document.getElementById("msg");
 
 const initialHeigth = parseInt(getComputedStyle($textarea).getPropertyValue('height'));
@@ -272,6 +270,7 @@ goToTopBtn.addEventListener('click', () => {
     });
 });
 
+//Cambio de titulo al Abandonar la pagina
 let tituloPrev = document.title;
 window.addEventListener('blur', () => {
     tituloPrev = document.title
