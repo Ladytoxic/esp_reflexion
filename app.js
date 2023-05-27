@@ -192,7 +192,7 @@ function generarArticulos(data) {
 
 const URL_API = './assets/Profile.json';
 let dataContact;
-Let dataTitulo;
+let dataTitulo;
 const $loader = document.getElementById('loader');
 
 // Consumo de la API
