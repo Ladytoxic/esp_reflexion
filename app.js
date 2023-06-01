@@ -189,7 +189,7 @@ function generarArticulos(data) {
     });
 }
 
-const URL_API = 'https://espacioweb-8c6cb-default-rtdb.firebaseio.com/.json';
+const URL_API = 'https://espacioweb-8c6cb-default-rtdb.firebaseio.com/data.json';
 let dataContact;
 let dataTitulo;
 const $loader = document.getElementById('loader');
